@@ -105,7 +105,7 @@ const DotPagination = ({ currentPage = 1, maxDots = 5, totalPages = 26 }) => {
 
     const progress = (currentPage - 1) / (totalPages - 1)
     return Math.round(progress * (dotsToShow - 1))
-  }, [currentPage])
+  }, [dotsToShow, currentPage, maxDots, totalPages])
 
   return (
     <div
@@ -139,7 +139,7 @@ const DotPagination = ({ currentPage = 1, maxDots = 5, totalPages = 26 }) => {
       </div>
 
       {/* 页码数量 */}
-      <div className="text-accent flex -translate-y-[1px] items-center gap-1 text-base font-medium">
+      <div className="text-accent flex -translate-y-px items-center gap-1 text-base font-medium">
         <div className="current-page">{currentPage}</div>
         <div className="divider">/</div>
         <div className="total-page">{totalPages}</div>

@@ -60,9 +60,6 @@ function CertificatePanel({ toggleButton }: CertificatePanelProps) {
       SESSDATA: data.SESSDATA
     })
 
-    console.log('222')
-    console.log(`🚀 document.cookie:`, document.cookie)
-
     const isLogin = await fetchSpaceInfo()
     if (isLogin) {
       navigate('/')

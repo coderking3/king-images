@@ -1,5 +1,4 @@
 import { AnimatePresence, motion, useAnimation } from 'framer-motion'
-import { useEffect, useState } from 'react'
 
 import { ANIMATION_EASE } from '@/constants'
 import { cn } from '@/utils'
@@ -33,21 +32,15 @@ const Image = ({
   src,
   srcSet
 }: Props) => {
-  const [error, setError] = useState(false)
   const animate = useAnimation()
   const placeholderAnimate = useAnimation()
   const isAnimate = animation
-  useEffect(() => setError(false), [src])
 
   const onLoad = async () => {
     if (isAnimate) {
       animate.start({ opacity: 1 })
       placeholderAnimate.start({ opacity: 0 })
     }
-  }
-  const onError = () => {
-    console.log(`🚀 error:`, error)
-    setError(true)
   }
 
   const transition = { duration: 0.6, ease: ANIMATION_EASE }
@@ -88,7 +81,6 @@ const Image = ({
           alt={alt}
           decoding="async"
           loading={lazyLoad ? 'lazy' : undefined}
-          onError={onError}
           onLoad={onLoad}
           {...motionProps}
         />

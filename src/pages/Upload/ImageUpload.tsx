@@ -101,6 +101,7 @@ const UploadArea = memo(() => {
         setUploadFiles([...uploadFiles, ...newFiles])
       }
     },
+
     [uploadFiles]
   )
 
@@ -222,7 +223,7 @@ const UploadFilePreviewList = memo((props: UploadFilePreviewListProps) => {
               style={{ objectFit: 'cover' }}
             />
             <motion.div
-              className="supports-[backdrop-filter]:bg-foreground/30 absolute inset-0 justify-between backdrop-blur transition-opacity"
+              className="supports-backdrop-filter:bg-foreground/30 absolute inset-0 justify-between backdrop-blur transition-opacity"
               initial={{ opacity: 0 }}
               {...(isMobile
                 ? {
@@ -241,7 +242,7 @@ const UploadFilePreviewList = memo((props: UploadFilePreviewListProps) => {
             >
               {/* 删除 */}
               <Button
-                className="!text-k-primary-foreground absolute top-2 right-2 size-6 rounded-full bg-red-500 hover:bg-red-600"
+                className="text-k-primary-foreground! absolute top-2 right-2 size-6 rounded-full bg-red-500 hover:bg-red-600"
                 variant="ghost"
                 size="icon"
                 onClick={(e) => {
@@ -255,13 +256,13 @@ const UploadFilePreviewList = memo((props: UploadFilePreviewListProps) => {
               {/* 预览 */}
               <motion.div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center">
                 <motion.button
-                  className="text-k-primary-foreground bg-k-primary-foreground/30 rounded-full p-[8px] backdrop-blur"
+                  className="text-k-primary-foreground bg-k-primary-foreground/30 rounded-full p-2 backdrop-blur"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ duration: 0.2 }}
                   onClick={() => handleOpenPreview(index)}
                 >
-                  <ZoomIn className="size-[24px]" strokeWidth={2.5} />
+                  <ZoomIn className="size-6" strokeWidth={2.5} />
                 </motion.button>
               </motion.div>
 
@@ -454,7 +455,7 @@ const RecentlyUploadedList = memo(({ format }: { format: ImageFormat }) => {
     <div className="mt-6 pb-3">
       <h3 className="mb-3 text-lg font-medium">最近上传</h3>
       <div
-        className="max-h-[320px] transform-gpu overflow-y-auto overscroll-contain scroll-smooth will-change-scroll"
+        className="max-h-80 transform-gpu overflow-y-auto overscroll-contain scroll-smooth will-change-scroll"
         style={{
           contain: 'layout style paint',
           overscrollBehavior: 'contain',
@@ -465,7 +466,7 @@ const RecentlyUploadedList = memo(({ format }: { format: ImageFormat }) => {
       >
         <div
           className={cn(
-            'grid max-h-[320px] w-full grid-cols-1 gap-3 will-change-transform',
+            'grid max-h-80 w-full grid-cols-1 gap-3 will-change-transform',
             recentlyImages.length < 2 ? 'sm:grid-cols-1' : 'sm:grid-cols-2'
           )}
           style={{
@@ -487,7 +488,7 @@ const RecentlyUploadedList = memo(({ format }: { format: ImageFormat }) => {
                 <Image
                   src={toWebp(item.url, '80w_80h_')}
                   alt={item.name}
-                  className="aspect-square size-20 flex-shrink-0 rounded-md"
+                  className="aspect-square size-20 shrink-0 rounded-md"
                   imageStyle={{
                     backfaceVisibility: 'hidden',
                     imageRendering: 'auto',
@@ -498,7 +499,7 @@ const RecentlyUploadedList = memo(({ format }: { format: ImageFormat }) => {
                   {item.name}
                 </div>
               </div>
-              <div className="ml-3 flex-shrink-0">
+              <div className="ml-3 shrink-0">
                 <Button
                   variant="outline"
                   onClick={() => handleCopyImage(item.name, item.url)}

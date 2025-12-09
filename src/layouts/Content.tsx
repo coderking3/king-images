@@ -3,7 +3,7 @@ interface ContentProps {
   style?: React.CSSProperties
 }
 
-export const Content = ({ children, style = {} }: ContentProps) => {
+export const Content = ({ children, style }: ContentProps) => {
   return (
     <main className="flex flex-1 flex-col transition-all ease-in" style={style}>
       {children}

@@ -1,5 +1,9 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable react-hooks/purity */
+/* eslint-disable react/no-unstable-default-props */
 import { css, keyframes } from '@emotion/css'
 import { motion, useMotionValue, useTransform } from 'framer-motion'
+import { useMemo } from 'react'
 import { useNavigate } from 'react-router'
 
 import { Container, Transition } from '@/components'
@@ -257,15 +261,17 @@ interface ImagesLogoProps {
 }
 
 // ImagesLogo 组件
-function ImagesLogo({
-  logoColor = {
-    fillColor: '#3B82F6',
-    strokeColor: '#1E40AF'
-  },
-  particleColor = ['#3B82F6', '#1E40AF'],
-  particleCount = 12,
-  size = 120
-}: ImagesLogoProps) {
+function ImagesLogo(props: ImagesLogoProps) {
+  const {
+    logoColor = {
+      fillColor: '#3B82F6',
+      strokeColor: '#1E40AF'
+    },
+    particleColor = ['#3B82F6', '#1E40AF'],
+    particleCount = 12,
+    size = 120
+  } = props
+
   // 根据图标大小自动计算容器内边距
   // 小图标用相对较大的padding，大图标用相对较小的padding
   const containerPadding = Math.max(30, size * 0.4)
@@ -278,29 +284,29 @@ function ImagesLogo({
   const maxRadius = size * 0.9 // 距离logo中心的最大距离
 
   // 生成粒子位置数据
-  const particles = Array.from({ length: particleCount }, (_, i) => {
-    // 使用角度分布确保粒子围绕logo均匀分布
-    const angle = (i / particleCount) * 2 * Math.PI + Math.random() * 0.5
-    const radius = minRadius + Math.random() * (maxRadius - minRadius)
+  const particles = useMemo(() => {
+    return Array.from({ length: particleCount }, (_, i) => {
+      const angle = (i / particleCount) * 2 * Math.PI + Math.random() * 0.5
+      const radius = minRadius + Math.random() * (maxRadius - minRadius)
 
-    const x = Math.cos(angle) * radius
-    const y = Math.sin(angle) * radius
+      const x = Math.cos(angle) * radius
+      const y = Math.sin(angle) * radius
 
-    // 为每个粒子生成独特的动画偏移量
-    const animationOffsetX = (Math.random() - 0.5) * 15
-    const animationOffsetY = (Math.random() - 0.5) * 15
+      const animationOffsetX = (Math.random() - 0.5) * 15
+      const animationOffsetY = (Math.random() - 0.5) * 15
 
-    return {
-      animationOffsetX,
-      animationOffsetY,
-      delay: (i / particleCount) * 2, // 更均匀的延迟分布
-      duration: 3 + Math.random() * 2, // 动画持续时间3-5秒
-      id: i,
-      size: 2 + Math.random() * 2, // 粒子大小变化
-      x: 50 + (x / containerSize) * 100, // 转换为百分比
-      y: 50 + (y / containerSize) * 100 // 转换为百分比
-    }
-  })
+      return {
+        animationOffsetX,
+        animationOffsetY,
+        delay: (i / particleCount) * 2,
+        duration: 3 + Math.random() * 2,
+        id: i,
+        size: 2 + Math.random() * 2,
+        x: 50 + (x / containerSize) * 100,
+        y: 50 + (y / containerSize) * 100
+      }
+    })
+  }, [particleCount, containerSize, minRadius, maxRadius])
 
   return (
     <div
@@ -472,7 +478,7 @@ function Welcome() {
   return (
     <Transition>
       <Container
-        className="max-w-[1152px]"
+        className="max-w-6xl"
         wrapperClassName="min-[960px]:px-16 min-sm:px-12 px-4"
       >
         <div

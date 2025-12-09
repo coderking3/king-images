@@ -111,9 +111,6 @@ const useUserStore = create<UserStore>()(
           // 设置 cookie，有效期30天
           setCookie('SESSDATA', certificate.SESSDATA, { expires: 30 })
           setCookie('bili_jct', certificate.bili_jct, { expires: 30 })
-
-          console.log('111')
-          console.log(`🚀 certificate:`, certificate)
         } else {
           // 如果证书为空或无效，清除 cookie
           removeCookie('SESSDATA')

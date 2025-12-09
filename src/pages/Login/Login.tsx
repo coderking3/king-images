@@ -1,3 +1,4 @@
+/* eslint-disable react/prefer-use-state-lazy-initialization */
 import type { Variants } from 'framer-motion'
 
 import { AnimatePresence, motion } from 'framer-motion'

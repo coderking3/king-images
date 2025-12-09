@@ -50,13 +50,12 @@ function calculateImageRatio(image: ImageInfo): string {
     return '1/2' // 1:2
   } else if (ratio >= 0.6 && ratio <= 0.7) {
     return '2/3' // 2:3
+  }
+  // 其他比例默认返回最接近的标准比例
+  else if (ratio > 1) {
+    return ratio > 1.5 ? '2/1' : '4/3'
   } else {
-    // 其他比例默认返回最接近的标准比例
-    if (ratio > 1) {
-      return ratio > 1.5 ? '2/1' : '4/3'
-    } else {
-      return ratio > 0.6 ? '3/4' : '1/2'
-    }
+    return ratio > 0.6 ? '3/4' : '1/2'
   }
 }
 

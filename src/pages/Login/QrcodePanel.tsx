@@ -103,7 +103,6 @@ function QrcodePanel({ toggleButton }: QrcodePanelProps) {
     try {
       const urlObj = new URL(url)
       const params = new URLSearchParams(urlObj.search)
-      console.log(`🚀 params:`, params)
 
       // 返回关键凭证用于状态管理
       const sessdata = params.get('SESSDATA')
@@ -143,7 +142,6 @@ function QrcodePanel({ toggleButton }: QrcodePanelProps) {
 
             // 从URL中解析登录凭证
             if (data.url) {
-              console.log('扫码登录成功，返回的URL:', data.url)
               const { bili_jct, sessdata } = extractCredentialsFromUrl(data.url)
 
               if (sessdata && bili_jct) {

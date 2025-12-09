@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Navigate, useLocation } from 'react-router'
 
 import { useUserStore } from '@/store'
@@ -14,9 +14,9 @@ const GuardRouter = ({ children }: GuardRouteProps) => {
   const { loggedIn } = useUserStore()
 
   /* After RouterGuard */
-  useEffect(() => {
-    // console.log('After RouterGuard')
-  }, [location])
+  // useEffect(() => {
+  //   // console.log('After RouterGuard')
+  // }, [location])
 
   /* Before RouterGuard */
   // console.log('Before RouterGuard')
