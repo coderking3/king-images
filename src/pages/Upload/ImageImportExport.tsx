@@ -1,14 +1,6 @@
 import type { ImageInfo } from '@/types'
 
-import {
-  Check,
-  ClipboardCopy,
-  Copy,
-  Download,
-  FileJson,
-  FileUp,
-  Upload
-} from 'lucide-react'
+import { ClipboardCopy, Download, FileJson, FileUp, Upload } from 'lucide-react'
 import { memo, useCallback, useState } from 'react'
 import { toast } from 'sonner'
 
@@ -20,7 +12,6 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-  Label,
   Tabs,
   TabsContent,
   TabsList,
@@ -174,10 +165,10 @@ const ImportModal = ({ children }: { children: React.ReactNode }) => {
           {/* 文件导入面板 */}
           <TabsContent value="file" className="space-y-4 py-4">
             <div
-              className="hover:bg-muted/50 flex cursor-pointer flex-col items-center justify-center gap-4 rounded-lg border-2 border-dashed p-8 transition-colors"
+              className="hover:bg-muted/50 flex cursor-pointer flex-col items-center justify-center space-y-4 rounded-lg border-2 border-dashed py-9 transition-colors"
               onClick={handleFileImport}
             >
-              <div className="bg-muted rounded-full p-3">
+              <div className="bg-muted rounded-full p-4">
                 <FileUp className="text-muted-foreground size-6" />
               </div>
               <div className="space-y-1 text-center">
@@ -196,12 +187,11 @@ const ImportModal = ({ children }: { children: React.ReactNode }) => {
 
           {/* 文本导入面板 */}
           <TabsContent value="text" className="space-y-4 py-4">
-            <div className="grid w-full gap-2">
-              <Label htmlFor="json-import">JSON 数据</Label>
+            <div className="grid w-full">
               <Textarea
                 id="json-import"
                 placeholder='[{"id": "...", "url": "..."}]'
-                className="h-[200px] font-mono text-xs"
+                className="h-[188px] font-mono text-xs"
                 value={jsonText}
                 onChange={(e) => setJsonText(e.target.value)}
               />
@@ -287,7 +277,7 @@ const ExportModal = ({ children }: { children: React.ReactNode }) => {
             <TabsTrigger value="text">复制 JSON</TabsTrigger>
           </TabsList>
 
-          {/* 导出文件面板 */}
+          {/* 文件导出面板 */}
           <TabsContent value="file" className="space-y-4 py-4">
             <div className="flex flex-col items-center justify-center space-y-4 py-8 text-center">
               <div className="bg-primary/10 rounded-full p-4">
@@ -311,24 +301,14 @@ const ExportModal = ({ children }: { children: React.ReactNode }) => {
 
           {/* 复制文本面板 */}
           <TabsContent value="text" className="space-y-4 py-4">
-            <div className="relative">
+            <div className="grid w-full">
+              {/* <Label>JSON 数据</Label> */}
               <Textarea
                 readOnly
+                placeholder='[{"id": "...", "url": "..."}]'
+                className="h-[188px] resize-none pr-10 font-mono text-xs"
                 value={dataStr}
-                className="h-[200px] resize-none pr-10 font-mono text-xs"
               />
-              <Button
-                size="icon"
-                variant="ghost"
-                className="absolute top-2 right-2 h-8 w-8"
-                onClick={handleCopy}
-              >
-                {hasCopied ? (
-                  <Check className="size-4 text-green-500" />
-                ) : (
-                  <Copy className="size-4" />
-                )}
-              </Button>
             </div>
             <Button
               className="w-full"
