@@ -1,11 +1,11 @@
+import { Monitor, QrCode } from 'lucide-react'
+
 import {
   Button,
   Tooltip,
   TooltipContent,
   TooltipTrigger
 } from '@/components/ui'
-
-import { Monitor, QrCode } from 'lucide-react'
 
 interface LoginToggleButtonProps {
   methodType: 'certificate' | 'qrcode'

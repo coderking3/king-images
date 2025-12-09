@@ -1,5 +1,6 @@
-const { readdirSync } = require('fs')
-const { resolve } = require('path')
+const { readdirSync } = require('node:fs')
+const { resolve } = require('node:path')
+const process = require('node:process')
 
 const scopes = readdirSync(resolve(process.cwd(), 'src'), {
   withFileTypes: true
@@ -28,7 +29,7 @@ const userConfig = {
       subject: '填写简短精炼的变更描述 :\n',
       type: '选择你要提交的类型 :'
     },
-    scopes: scopes,
+    scopes,
 
     types: [
       { emoji: '🚀', name: 'feat:   🚀 新增功能', value: 'feat' },

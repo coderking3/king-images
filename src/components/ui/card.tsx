@@ -1,6 +1,6 @@
-import { cn } from '@/utils'
-
 import * as React from 'react'
+
+import { cn } from '@/utils'
 
 function Card({ className, ...props }: React.ComponentProps<'div'>) {
   return (

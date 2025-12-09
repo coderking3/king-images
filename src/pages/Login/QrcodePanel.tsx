@@ -1,5 +1,12 @@
+import { CheckIcon, Loader2, RotateCw } from 'lucide-react'
+import { QRCodeSVG } from 'qrcode.react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { useNavigate } from 'react-router'
+import { toast } from 'sonner'
+
 import { generateQrcode, pollQrcode } from '@/api'
 import {
+  Button,
   Card,
   CardContent,
   CardDescription,
@@ -7,14 +14,7 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui'
-import { Button } from '@/components/ui'
 import { useUserStore } from '@/store'
-
-import { CheckIcon, Loader2, RotateCw } from 'lucide-react'
-import { QRCodeSVG } from 'qrcode.react'
-import { useEffect, useMemo, useRef, useState } from 'react'
-import { useNavigate } from 'react-router'
-import { toast } from 'sonner'
 
 interface OverlayProps {
   isLoading?: boolean
@@ -148,7 +148,7 @@ function QrcodePanel({ toggleButton }: QrcodePanelProps) {
 
               if (sessdata && bili_jct) {
                 setCertificate({
-                  bili_jct: bili_jct,
+                  bili_jct,
                   SESSDATA: sessdata
                 })
 

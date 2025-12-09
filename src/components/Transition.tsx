@@ -1,6 +1,6 @@
-import { ANIMATION_EASE } from '@/constants'
-
 import { motion, MotionConfig } from 'framer-motion'
+
+import { ANIMATION_EASE } from '@/constants'
 
 const Transition = ({
   children,

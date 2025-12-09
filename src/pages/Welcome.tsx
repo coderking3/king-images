@@ -1,12 +1,12 @@
+import { css, keyframes } from '@emotion/css'
+import { motion, useMotionValue, useTransform } from 'framer-motion'
+import { useNavigate } from 'react-router'
+
 import { Container, Transition } from '@/components'
 import { Button } from '@/components/ui/button'
 import { APP_NAME } from '@/constants'
 import { Logo as LogoIcon } from '@/icons'
 import { cn } from '@/utils'
-
-import { css, keyframes } from '@emotion/css'
-import { motion, useMotionValue, useTransform } from 'framer-motion'
-import { useNavigate } from 'react-router'
 
 const introContainerCss = css`
   @media (min-width: 960px) {

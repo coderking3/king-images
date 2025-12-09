@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     //  初始化用户信息
     initUserInfo()
-  }, [])
+  }, [initUserInfo])
 
   return (
     <Fragment>

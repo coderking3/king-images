@@ -1,7 +1,7 @@
-import { cn } from '@/utils/index'
-
 import * as PopoverPrimitive from '@radix-ui/react-popover'
 import * as React from 'react'
+
+import { cn } from '@/utils/index'
 
 function Popover({
   ...props

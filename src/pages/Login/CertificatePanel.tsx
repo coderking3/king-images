@@ -1,3 +1,11 @@
+import { zodResolver } from '@hookform/resolvers/zod'
+import { Loader2 } from 'lucide-react'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router'
+import { toast } from 'sonner'
+import { z } from 'zod'
+
 import {
   Button,
   Card,
@@ -15,14 +23,6 @@ import {
   Input
 } from '@/components/ui'
 import { useUserStore } from '@/store'
-
-import { zodResolver } from '@hookform/resolvers/zod'
-import { Loader2 } from 'lucide-react'
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router'
-import { toast } from 'sonner'
-import { z } from 'zod'
 
 const formSchema = z.object({
   bili_jct: z.string().min(1, {

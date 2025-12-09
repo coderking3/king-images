@@ -1,8 +1,8 @@
+import { memo } from 'react'
+
 import { Container } from '@/components'
 import { useIsTop } from '@/hooks'
 import { cn } from '@/utils'
-
-import { memo } from 'react'
 
 import Logo from './Logo'
 import UserCard from './UserCard'

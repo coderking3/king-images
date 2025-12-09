@@ -1,5 +1,3 @@
-/* eslint-disable perfectionist/sort-objects */
-
 import type { RouteObject } from 'react-router'
 
 import { Layout } from '@/layouts'

@@ -1,6 +1,6 @@
-import { Toaster } from '@/components/ui'
-
 import { Outlet } from 'react-router'
+
+import { Toaster } from '@/components/ui'
 
 import layoutConfig from './config'
 import Content from './Content'

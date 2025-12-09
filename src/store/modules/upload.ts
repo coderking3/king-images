@@ -1,5 +1,3 @@
-/* eslint-disable perfectionist/sort-interfaces */
-/* eslint-disable perfectionist/sort-objects */
 import type { ImageInfo } from '@/types'
 
 import { create } from 'zustand'

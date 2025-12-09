@@ -1,9 +1,9 @@
-import { BASE_API_URL } from '@/constants'
-
 import { axiosRequestAdapter } from '@alova/adapter-axios'
 import { createAlova } from 'alova'
 import ReactHook from 'alova/react'
 import axios from 'axios'
+
+import { BASE_API_URL } from '@/constants'
 
 // 创建axios实例
 const axiosInstance = axios.create({

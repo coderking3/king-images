@@ -79,7 +79,6 @@ pnpm build
 ### Usage Guide
 
 1. **Image Upload**
-
    - Go to the homepage and click on the "Image Upload" tab
    - Drag images to the upload area or click the "Select Files" button
    - You can also directly copy images and paste them into the page

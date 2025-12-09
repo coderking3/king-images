@@ -1,3 +1,7 @@
+import { Home, Images, LogIn, Upload } from 'lucide-react'
+import { memo } from 'react'
+import { useLocation, useNavigate } from 'react-router'
+
 import {
   Avatar,
   AvatarFallback,
@@ -10,10 +14,6 @@ import {
 import { useHoverOpen } from '@/hooks'
 import { Bilibili, Github } from '@/icons'
 import { useUserStore } from '@/store'
-
-import { Home, Images, LogIn, Upload } from 'lucide-react'
-import { memo } from 'react'
-import { useLocation, useNavigate } from 'react-router'
 
 // 定义UserInfo类型
 interface UserInfo {

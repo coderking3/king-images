@@ -1,4 +1,6 @@
-import { AnimatePresence, motion, type Variants } from 'framer-motion'
+import type { Variants } from 'framer-motion'
+
+import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 
 import CertificatePanel from './CertificatePanel'

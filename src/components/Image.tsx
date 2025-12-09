@@ -1,10 +1,10 @@
-import { ANIMATION_EASE } from '@/constants'
-import { cn } from '@/utils'
-
 import { AnimatePresence, motion, useAnimation } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
-type Props = {
+import { ANIMATION_EASE } from '@/constants'
+import { cn } from '@/utils'
+
+interface Props {
   alt?: string
   animation?: boolean
   className?: string

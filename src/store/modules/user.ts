@@ -1,8 +1,8 @@
-import { getSpaceInfo } from '@/api'
-import { getCookie, removeCookie, setCookie } from '@/utils'
-
 import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
+
+import { getSpaceInfo } from '@/api'
+import { getCookie, removeCookie, setCookie } from '@/utils'
 
 interface UserInfo {
   avatar: string

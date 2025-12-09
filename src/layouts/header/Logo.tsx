@@ -1,8 +1,8 @@
-import { APP_NAME } from '@/constants'
-import { Logo as LogoIcon } from '@/icons'
-
 import { memo } from 'react'
 import { useNavigate } from 'react-router'
+
+import { APP_NAME } from '@/constants'
+import { Logo as LogoIcon } from '@/icons'
 
 interface LogoProps {
   fillColor?: string

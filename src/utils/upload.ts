@@ -1,8 +1,8 @@
 import type { BatchUploadResult, ImageInfo, UploadProgress } from '@/types'
 
-import { uploadImage } from '@/api'
-
 import { UUID } from 'uuidjs'
+
+import { uploadImage } from '@/api'
 
 import { getImgSize } from './processor'
 

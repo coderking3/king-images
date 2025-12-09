@@ -1,6 +1,3 @@
-import { useIsMobile } from '@/hooks'
-import { cn } from '@/utils'
-
 import { css } from '@emotion/css'
 import { motion } from 'framer-motion'
 import {
@@ -16,6 +13,9 @@ import {
 } from 'lucide-react'
 import { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { PhotoSlider } from 'react-photo-view'
+
+import { useIsMobile } from '@/hooks'
+import { cn } from '@/utils'
 
 interface DataType {
   /** 唯一标识 */

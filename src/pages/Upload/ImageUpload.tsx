@@ -1,5 +1,11 @@
-import type { UploadProgress } from '@/types'
 import type { ChangeEvent, ClipboardEvent, DragEvent } from 'react'
+
+import type { UploadProgress } from '@/types'
+
+import { motion } from 'framer-motion'
+import { UploadIcon, X, ZoomIn } from 'lucide-react'
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { toast } from 'sonner'
 
 import { Image, ImagePreview, useImagePreview } from '@/components'
 import {
@@ -19,11 +25,6 @@ import { useIsMobile } from '@/hooks'
 import { useUploadStore } from '@/store'
 import { cn, copyToClipboard, toMarkdown, toWebp } from '@/utils'
 import { uploadBatch } from '@/utils/upload'
-
-import { motion } from 'framer-motion'
-import { UploadIcon, X, ZoomIn } from 'lucide-react'
-import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { toast } from 'sonner'
 
 type ImageFormat = 'markdown' | 'webp'
 const FormatSelector = memo(

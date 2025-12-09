@@ -1,7 +1,7 @@
-import { useUserStore } from '@/store'
-
 import React, { useEffect } from 'react'
 import { Navigate, useLocation } from 'react-router'
+
+import { useUserStore } from '@/store'
 
 interface GuardRouteProps {
   children: React.ReactNode
